@@ -13,7 +13,7 @@
     <style type="text/css">
       @font-face {
         font-family: "Open Sans";
-        src: url("https://fonts.googleapis.com/css?family=Open+Sans:400,700");
+        src: url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
       }
 
       html {
@@ -31,20 +31,20 @@
       }
 
       body {
-        font-family: 'Open Sans', sans-serif;
+        font-family: 'Open Sans',sans-serif;
         color: #333;
       }
 
       a {
-        color: #12C;
+        color: #12c;
       }
 
       a:visited {
-        color: #61C;
+        color: #61c;
       }
 
       strong {
-        font-weight: bold;
+        font-weight: 700;
       }
 
       ul {
@@ -61,16 +61,16 @@
         background: #fff;
       }
 
-      header,
+      .container,
       footer,
-      .container {
+      header {
         max-width: 45em;
         margin: 0 auto;
       }
 
       header {
-        padding: 0 0.5em;
-        color: #C90B0B;
+        padding: 0 .5em;
+        color: #c90b0b;
       }
 
       header img {
@@ -80,13 +80,13 @@
 
       header p {
         font-size: 1.5em;
-        font-weight: bold;
+        font-weight: 700;
         padding-left: 4em;
       }
 
       header p span {
-        font-size: 0.8em;
-        font-weight: normal;
+        font-size: .8em;
+        font-weight: 400;
       }
 
       .hero {
@@ -112,12 +112,12 @@
       }
 
       li p {
-        font-size: 0.9em;
+        font-size: .9em;
         font-style: italic;
       }
 
       footer {
-        padding: 0 0.5em;
+        padding: 0 .5em;
         border-top: 1px solid #ccc;
       }
 
@@ -126,7 +126,7 @@
         font-style: italic;
       }
 
-      @media only screen and (max-width: 480px) {
+      @media only screen and (max-width:480px) {
         body {
           font-size: 12px;
         }
@@ -137,10 +137,10 @@
       }
 
     </style>
-    <link href="css/style.css" rel="preload" as="style" onload="this.rel='stylesheet'">
-    <noscript><link href="css/style.css" rel="stylesheet"></noscript>
-    <link href="css/print.css" rel="preload" media="print" as="style" onload="this.rel='stylesheet'">
-    <noscript><link href="css/print.css" rel="stylesheet" media="print"></noscript>
+    <link href="release/css/style.min.css" rel="preload" as="style" onload="this.rel='stylesheet'">
+    <noscript><link href="release/css/style.min.css" rel="stylesheet"></noscript>
+    <link href="release/css/print.min.css" rel="preload" media="print" as="style" onload="this.rel='stylesheet'">
+    <noscript><link href="release/css/print.min.css" rel="stylesheet" media="print"></noscript>
     <script>!function(e){"use strict";var t=function(t,n,r){function o(e){return i.body?e():void setTimeout(function(){o(e)})}function a(){d.addEventListener&&d.removeEventListener("load",a),d.media=r||"all"}var l,i=e.document,d=i.createElement("link");if(n)l=n;else{var s=(i.body||i.getElementsByTagName("head")[0]).childNodes;l=s[s.length-1]}var u=i.styleSheets;d.rel="stylesheet",d.href=t,d.media="only x",o(function(){l.parentNode.insertBefore(d,n?l:l.nextSibling)});var f=function(e){for(var t=d.href,n=u.length;n--;)if(u[n].href===t)return e();setTimeout(function(){f(e)})};return d.addEventListener&&d.addEventListener("load",a),d.onloadcssdefined=f,f(a),d};"undefined"!=typeof exports?exports.loadCSS=t:e.loadCSS=t}("undefined"!=typeof global?global:this),function(e){if(e.loadCSS){var t=loadCSS.relpreload={};if(t.support=function(){try{return e.document.createElement("link").relList.supports("preload")}catch(e){return!1}},t.poly=function(){for(var t=e.document.getElementsByTagName("link"),n=0;n<t.length;n++){var r=t[n];"preload"===r.rel&&"style"===r.getAttribute("as")&&(e.loadCSS(r.href,r),r.rel=null)}},!t.support()){t.poly();var n=e.setInterval(t.poly,300);e.addEventListener&&e.addEventListener("load",function(){t.poly(),e.clearInterval(n)}),e.attachEvent&&e.attachEvent("onload",function(){e.clearInterval(n)})}}}(this);</script>
   </head>
 
@@ -158,17 +158,17 @@
       <div class="content">
         <ul>
           <li>
-            <img src="images-opt/build_your_own_2048-100_compressed.jpg">Build Your Own 2048!
+            <img src="images-opt/build_your_own_2048-100_compressed.jpg"><a href="project-2048.html">Build Your Own 2048!</a>
             <p>I made my own version of 2048. How cool is that!?</p>
           </li>
 
           <li>
-            <img src="images-opt/website_optimization-100_compressed.jpg">Website Performance Optimization
+            <img src="images-opt/website_optimization-100_compressed.jpg"><a href="project-webperf.html">Website Performance Optimization</a>
             <p>Hey... this class looks familiar.</p>
           </li>
 
           <li>
-            <img src="images-opt/mobile_web_dev-100_compressed.jpg">Mobile Web Development
+            <img src="images-opt/mobile_web_dev-100_compressed.jpg"> <a href="project-mobile.html">Mobile Web Development</a>
             <p>Making mobile apps isn't so hard after all.</p>
           </li>
 

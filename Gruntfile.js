@@ -35,6 +35,18 @@ module.exports = function(grunt) {
             }
         },
 
+        cssmin: {
+            dev: {
+                files: [{
+                  expand: true,
+                  cwd: 'css/',
+                  src: ['*.css', '!*.min.css'],
+                  dest: 'release/css',
+                  ext: '.min.css'
+                }]
+            }
+        },
+
         imagemin: {
             dev: {                         // Another target
               files: [{
@@ -99,6 +111,7 @@ module.exports = function(grunt) {
         },
     });
 
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-responsive-images');
     grunt.loadNpmTasks('grunt-contrib-clean');
@@ -106,5 +119,5 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-mkdir');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-critical');
-    grunt.registerTask('default', ['clean', 'mkdir', 'copy', 'responsive_images', 'imagemin', 'critical', 'htmlmin']);
+    grunt.registerTask('default', ['clean', 'mkdir', 'copy', 'responsive_images', 'cssmin', 'imagemin', 'critical', 'htmlmin']);
 };

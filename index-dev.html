@@ -62,7 +62,15 @@
       ga('create', 'UA-XXXX-Y');
       ga('send', 'pageview');
     </script>
-    <script src="http://www.google-analytics.com/analytics.js" async></script>
-    <script async src="js/perfmatters.js"></script>
+    <!-- <script src="http://www.google-analytics.com/analytics.js" async></script> -->
+    <link rel="preload" as="script" href="http://www.google-analytics.com/analytics.js"
+      onload="var script = document.createElement('script');
+      script.src = this.href;
+      document.body.appendChild(script);">
+    <!-- <script async src="js/perfmatters.js"></script> -->
+    <link rel="preload" as="script" href="js/perfmatters.js"
+      onload="var script = document.createElement('script');
+      script.src = this.href;
+      document.body.appendChild(script);">
   </body>
 </html>

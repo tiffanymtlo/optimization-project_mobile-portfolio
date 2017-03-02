@@ -18,7 +18,7 @@ module.exports = function(grunt) {
                 minifyJS: true
               },
               files: {                                   // Dictionary of files
-                'index.html': 'index-critical.html',     // 'destination': 'source'
+                'index.html': 'index-dev.html',     // 'destination': 'source'
               }
             }
         },
@@ -119,6 +119,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-mkdir');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-critical');
-    grunt.registerTask('default', ['clean', 'mkdir', 'copy', 'responsive_images', 'cssmin', 'imagemin', 'critical', 'htmlmin']);
-    // grunt.registerTask('default', ['clean', 'mkdir', 'copy', 'responsive_images', 'cssmin', 'imagemin', 'htmlmin']);
+    // grunt.registerTask('default', ['clean', 'mkdir', 'copy', 'responsive_images', 'cssmin', 'imagemin', 'critical', 'htmlmin']);
+    grunt.registerTask('default', ['clean', 'mkdir', 'copy', 'responsive_images', 'cssmin', 'imagemin', 'htmlmin']);
 };

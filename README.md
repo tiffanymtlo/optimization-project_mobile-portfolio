@@ -32,8 +32,8 @@ Here are a list of things that were edited to optimize for higher PageSpeed Insi
 ####Part 2: Optimize scrolling and resizing pizzas performances in pizza.html
 
 There are 2 parts that need to be optimized in pizza.html: 
-	- Scrolling performance: optimize until scrolling action is 60 fps or more 
-	- Resizing pizza performance: optimize until resizing pizza action is less than 5 ms 
+- Scrolling performance: optimize until scrolling action is 60 fps or more 
+- Resizing pizza performance: optimize until resizing pizza action is less than 5 ms 
 
 ##### Scrolling performance 
 In [main.js](views/js/main.js), to smooth the scrolling performance: 
@@ -62,7 +62,7 @@ In [main.js](views/js/main.js), to smooth the resizing pizza performance:
 	- The easier way is to directly change the percentage widths of pizzas when the pizzas get resized
 	- The calculation of `dx` is unnecessary 
 
-### Grunt
+## Grunt
 
 #### Getting Started with Grunt
 
@@ -76,10 +76,11 @@ To put `grunt` commands in the system path, run:
 
 ##### Working with an existing Grunt project
 To run an existing Grunt project, including the one in this project: 
-0. Check to make sure there are `Gruntfile.js` and `package.json`
-1. Change to the project's root directory 
-2. Install all project dependencies by running ```npm install```
-3. Run Grunt with ```grunt```
+
+1. Check to make sure there are `Gruntfile.js` and `package.json`
+2. Change to the project's root directory 
+3. Install all project dependencies by running ```npm install```
+4. Run Grunt with ```grunt```
 
 ##### Grunt and gruntplugins
 There are 7 plugins in this project's `Gruntfile.js` file. 

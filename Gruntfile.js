@@ -1,37 +1,29 @@
 /*
- After you have changed the settings under responsive_images
- run this with one of these options:
-  "grunt" alone creates a new, completed images directory
-  "grunt clean" removes the images directory
-  "grunt responsive_images" re-processes images without removing the old ones
+ Run this with one of these options:
+  "grunt" runs all the options to create new, compressed images in the appropriate directories, and minified all files
+  "grunt htmlmin" minifies index-dev.html
+  "grunt cssmin" minifies print.css
+  "grunt imagemin" compresses all images and store them in images-opt
+  "grunt responsive_images" compresses images to desired width and quality and store them in images-opt
+  "grunt clean" cleans the directory for storing compressed images 
+  "grunt mkdir" makes the directory for storing compressed images 
+  "grunt copy" copies the images that do not need compression to the appropriate directory
 */
 
 module.exports = function(grunt) {
 
     grunt.initConfig({
-        htmlmin: {                                     // Task
-            dist: {                                      // Target
-              options: {                                 // Target options
+        htmlmin: {                                     
+            dist: {                                      
+              options: {                                 
                 removeComments: true,
                 collapseWhitespace: true,
                 minifyCSS: true,
                 minifyJS: true
               },
-              files: {                                   // Dictionary of files
+              files: {                                   
                 'index.html': 'index-dev.html',     // 'destination': 'source'
               }
-            }
-        },
-
-        critical: {
-            dist: {
-              options: {
-                base: './'
-              },
-              // The source file
-              src: 'index-dev.html',
-              // The destination file
-              dest: 'index-critical.html'
             }
         },
 
@@ -48,7 +40,7 @@ module.exports = function(grunt) {
         },
 
         imagemin: {
-            dev: {                         // Another target
+            dev: {                         
               files: [{
                 expand: true,
                     src: ['*.{gif,jpg,png}'],
@@ -82,14 +74,14 @@ module.exports = function(grunt) {
             }
         },
 
-        //  Clear out the images directory if it exists 
+        //  Clear out the images-opt/ directory if it exists 
         clean: {
             dev: {
                 src: ['images-opt'],
             },
         },
 
-        // /* Generate the images directory if it is missing */
+        // /* Generate the images-opt/ directory if it is missing */
         mkdir: {
             dev: {
                 options: {
@@ -98,7 +90,7 @@ module.exports = function(grunt) {
             },
         },
 
-        // /* Copy the "fixed" images that don't go through processing into the images/directory */
+        // /* Copy the "fixed" images that don't go through processing into the images-opt/ */
         copy: {
             dev: {
                 files: [{
@@ -118,7 +110,5 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-mkdir');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
-    grunt.loadNpmTasks('grunt-critical');
-    // grunt.registerTask('default', ['clean', 'mkdir', 'copy', 'responsive_images', 'cssmin', 'imagemin', 'critical', 'htmlmin']);
     grunt.registerTask('default', ['clean', 'mkdir', 'copy', 'responsive_images', 'cssmin', 'imagemin', 'htmlmin']);
 };

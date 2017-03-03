@@ -1,10 +1,8 @@
 /*
-Welcome to the 60fps project! Your goal is to make Cam's Pizzeria website run
+Welcome to the 60fps project! The goal is to make Cam's Pizzeria website run
 jank-free at 60 frames per second.
 
-There are two major issues in this code that lead to sub-60fps performance. Can
-you spot and fix both?
-
+There are two major issues in this code that lead to sub-60fps performance. 
 
 Built into the code, you'll find a few instances of the User Timing API
 (window.performance), which will be console.log()ing frame rate data into the
@@ -421,43 +419,36 @@ var resizePizzas = function(size) {
 
   changeSliderLabel(size);
 
-   // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
-  // function determineDx (elem, size) {
-    // var oldWidth = elem.offsetWidth;
-    // var windowWidth = document.querySelector("#randomPizzas").offsetWidth;
-    // var oldSize = oldWidth / windowWidth;
+   // Funcion determineDx() is over-complicated. It is removed as it is unnecessary 
 
-    // Changes the slider value to a percent width
-    function sizeSwitcher (size) {
-      var newSize; 
-      switch(size) {
-        case "1":
-          newSize = 25;
-          break;
-        case "2":
-          newSize = 33.33;
-          break;
-        case "3":
-          newSize = 50;
-          break;
-        default:
-          console.log("bug in sizeSwitcher");
-      }
-      return newSize;
+
+  // Changes the slider value to a percent width and returns the newSize value 
+  function sizeSwitcher (size) {
+    var newSize; 
+    switch(size) {
+      case "1":
+        newSize = 25;
+        break;
+      case "2":
+        newSize = 33.33;
+        break;
+      case "3":
+        newSize = 50;
+        break;
+      default:
+        console.log("bug in sizeSwitcher");
     }
+    return newSize;
+  }
 
-    // var newSize = sizeSwitcher(size);
-    // var dx = (newSize - oldSize) * windowWidth;
-
-    // return newSize;
-  // }
 
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
+    // Extracted document.querySelectorAll(".randomPizzaContainer") out from the for-loop for caching
     var randomPizzas = document.querySelectorAll(".randomPizzaContainer");
     for (var i = 0; i < randomPizzas.length; i++) {
       var newWidth =  sizeSwitcher(size);
-      // var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
+      // Change the percentage widths of the pizzas directly
       randomPizzas[i].style.width = newWidth + '%';
     }
   }
@@ -499,24 +490,27 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
   console.log("Average scripting time to generate last 10 frames: " + sum / 10 + "ms");
 }
 
-// The following code for sliding background pizzas was pulled from Ilya's demo found at:
-// https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
+
 
 // Moves the sliding background pizzas based on scroll position
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
+  // Uses getElementsByClassName('mover') instead for a more efficient way to access DOM
+  // Extracted the repeating calculations required in the for-loop and store them in variables for caching
   var items = document.getElementsByClassName('mover');
   var itemsLength = items.length;
   var scroll = document.body.scrollTop/1250;
   var phase = [];
+  // Generate the 5 phase values and store them in an array
   for (var p = 0; p < 5; p++) {
     phase[p] = Math.sin((scroll) + p);
   }
 
+  // Iterates through the moving pizzas and change their positions
   for (var i = 0; i < itemsLength; i++) {
-    // items[i].style.left = items[i].basicLeft + 100 * phase[i % 5] + 'px';
+    // Use transform instead of style.left to more efficiently move the moving pizzas
     items[i].style.transform = 'translateX(' + (100 * phase[i % 5]) + 'px)';
 
   }
@@ -538,7 +532,7 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  for (var i = 0; i < 72; i++) {
+  for (var i = 0; i < 64; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";

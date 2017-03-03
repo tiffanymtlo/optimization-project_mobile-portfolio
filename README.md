@@ -1,8 +1,8 @@
 ## Website Performance Optimization portfolio project
 
 The project goal is to optimize the website for both mobile and desktop usage. There are 2 parts that are optimized: 
-	- PageSpeed Insights score for index.html
-	- Scrolling and resizing pizzas performances in pizza.html 
+- PageSpeed Insights score for index.html
+- Scrolling and resizing pizzas performances in pizza.html 
 
 ### Getting started
 
